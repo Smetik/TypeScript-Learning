@@ -22,22 +22,27 @@ function safeParseInput (data:unknown): User{
         throw new Error ("Нет поля isActive");
     }
 
+    const obj = data as {
+        id: unknown;
+        name: unknown;
+        isActive: unknown;
+    }
 
-    if (typeof data.id !== "number"){
+    if (typeof obj.id !== "number"){
         throw new Error ("id должен быть числом")
     }
 
-    if (typeof data.name !== "string"){
+    if (typeof obj.name !== "string"){
         throw new Error ("name должен быть строкой")
     }
 
-    if (typeof data.isActive !== "boolean"){
+    if (typeof obj.isActive !== "boolean"){
         throw new Error ("isActive должен быть boolean")
     }
 
     return {
-        id: data.id,
-        name: data.name,
-        isActive: data.isActive
+        id: obj.id,
+        name: obj.name,
+        isActive: obj.isActive
     };
 }
