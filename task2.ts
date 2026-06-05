@@ -13,6 +13,9 @@ const enum Status {
 
 type Point = [number, number];
 
+let point:Point = [3,4];
+console.log(move(point, Direction.East));
+
 function move (point:Point, direction:Direction): Point {
     const [x, y] = point;
     switch (direction){
